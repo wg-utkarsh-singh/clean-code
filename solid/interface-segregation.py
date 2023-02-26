@@ -1,33 +1,47 @@
 from abc import ABC, abstractmethod
 
 
+class Mammal(ABC):
+    @abstractmethod
+    def speak():
+        pass
+
+
 class Walker(ABC):
     @abstractmethod
-    def walk() -> bool:
-        return print("Can Walk")
+    def walk():
+        pass
 
 
 class Swimmer(ABC):
     @abstractmethod
-    def swim() -> bool:
-        return print("Can Swim")
+    def swim():
+        pass
 
 
-class Human(Walker, Swimmer):
+class Human(Mammal, Walker, Swimmer):
+    def speak():
+        print("Humans can speak")
+
     def walk():
-        return print("Humans can walk")
+        print("Humans can walk")
 
     def swim():
-        return print("Humans can swim")
+        print("Humans can swim")
 
 
-class Whale(Swimmer):
+class Whale(Mammal, Swimmer):
+    def speak():
+        print("Whales can speak")
+
     def swim():
-        return print("Whales can swim")
+        print("Whales can swim")
 
 
 if __name__ == "__main__":
+    Human.speak()
     Human.walk()
     Human.swim()
 
+    Whale.speak()
     Whale.swim()
