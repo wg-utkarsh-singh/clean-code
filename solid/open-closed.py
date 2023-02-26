@@ -18,7 +18,7 @@ class Max(Operations):
 
 
 class Main:
-    @abstractmethod
+    @staticmethod
     def get_operations(nums):
         # __subclasses__ will found all classes inheriting from Operations
         for operation in Operations.__subclasses__():
